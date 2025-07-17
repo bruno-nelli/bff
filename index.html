@@ -2,26 +2,84 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>🎵 Surpresa!</title>
+    <title>Formulário de Acesso</title>
+    <style>
+      body {
+        margin: 0;
+        background: #2c003e;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .form-fake {
+        background: #3f0071;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #ffef5a44;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      .form-fake h2 {
+        margin-bottom: 20px;
+        color: #ffef5a;
+      }
+
+      .form-fake input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 5px;
+        background: #f8e664;
+        color: #000;
+        font-weight: bold;
+      }
+
+      .form-fake button {
+        padding: 10px 20px;
+        background: #ffef5a;
+        color: #2c003e;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .form-fake button:hover {
+        background: #fff176;
+      }
+    </style>
   </head>
-  <body style="margin: 0; background: black; display: flex; align-items: center; justify-content: center; height: 100vh; color: white; font-family: sans-serif;">
-    <h1>😈 Pegadinha iniciada...</h1>
+  <body>
+    <div class="form-fake">
+      <h2>🔐 Portal Restrito</h2>
+      <input type="text" placeholder="Nome de usuário" />
+      <input type="password" placeholder="Senha" />
+      <button>Entrar</button>
+    </div>
 
     <audio id="pegadinha" src="1000-bits.mp3"></audio>
 
     <script>
-      // Tentar autoplay ao carregar
       const audio = document.getElementById("pegadinha");
+      audio.volume = 1.0;
+
       const playAudio = () => {
         audio.play().catch(() => {
-          // Se o autoplay falhar, aguarda interação do usuário
           document.body.addEventListener("click", () => {
             audio.play();
           }, { once: true });
         });
       };
 
-      // Aguarda a página carregar
       window.addEventListener("load", playAudio);
     </script>
   </body>
