@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🎵 Surpresa!</title>
+  </head>
+  <body style="margin: 0; background: black; display: flex; align-items: center; justify-content: center; height: 100vh; color: white; font-family: sans-serif;">
+    <h1>😈 Pegadinha iniciada...</h1>
+
+    <audio id="pegadinha" src="1000-bits.mp3"></audio>
+
+    <script>
+      // Tentar autoplay ao carregar
+      const audio = document.getElementById("pegadinha");
+      const playAudio = () => {
+        audio.play().catch(() => {
+          // Se o autoplay falhar, aguarda interação do usuário
+          document.body.addEventListener("click", () => {
+            audio.play();
+          }, { once: true });
+        });
+      };
+
+      // Aguarda a página carregar
+      window.addEventListener("load", playAudio);
+    </script>
+  </body>
+</html>
